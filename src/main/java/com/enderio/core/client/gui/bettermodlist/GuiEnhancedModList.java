@@ -59,20 +59,15 @@ public class GuiEnhancedModList extends GuiModList {
       String name1 = StringUtils.stripControlCodes(o1.getName()).toLowerCase(Locale.US);
       String name2 = StringUtils.stripControlCodes(o2.getName()).toLowerCase(Locale.US);
       switch (type) {
-      case A_TO_Z:
-        return name1.compareTo(name2);
-      case Z_TO_A:
-        return name2.compareTo(name1);
-      default:
-        return 0;
+        case A_TO_Z:
+          return name1.compareTo(name2);
+        case Z_TO_A:
+          return name2.compareTo(name1);
+        default:
+          return 0;
       }
     }
   }
-
-  private class InfoButton extends GuiButton {
-    public InfoButton() {
-      super(30, GuiEnhancedModList.this.width - 22, 2, 20, 20, "?");
-    }
 
   private static Field _mods, _selected, _selectedMod;
   private static Field _modList, _modListRight, _modListBottom, _modListMods, _listWidth, _scrollDistance;
@@ -156,11 +151,9 @@ public class GuiEnhancedModList extends GuiModList {
     x += width + buttonMargin;
     buttonList.add(new GuiButton(SortType.Z_TO_A.buttonID, x, y, width - buttonMargin, 20, "Z-A"));
 
-    buttonList.add(new InfoButton());
-    
     reloadMods();
     disableButton();
-    
+
     setGuiModListScroll(scroll);
   }
 
