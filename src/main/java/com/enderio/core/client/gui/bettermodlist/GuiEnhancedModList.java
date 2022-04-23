@@ -74,33 +74,6 @@ public class GuiEnhancedModList extends GuiModList {
       super(30, GuiEnhancedModList.this.width - 22, 2, 20, 20, "?");
     }
 
-    @Override
-    public void drawButton(Minecraft p_146112_1_, int p_146112_2_, int p_146112_3_) {
-      if (this.field_146123_n) {
-        ModContainer sel = GuiEnhancedModList.this.getSelectedMod();
-        if (sel != null && sel.getName().equals(EnderCore.NAME)) {
-          this.displayString = EnderCore.lang.localize("gui.modlistinfo2");
-        } else {
-          this.displayString = EnderCore.lang.localize("gui.modlistinfo1");
-        }
-
-        this.width = p_146112_1_.fontRenderer.getStringWidth(this.displayString) + 10;
-        if (this.width % 2 != 0) // Fixes the button shifting to the left
-        {
-          this.width++;
-        }
-
-        this.xPosition = GuiEnhancedModList.this.width - this.width - 2;
-      } else {
-        this.displayString = "?";
-        this.width = 20;
-        this.xPosition = GuiEnhancedModList.this.width - this.width - 2;
-      }
-
-      super.drawButton(p_146112_1_, p_146112_2_, p_146112_3_);
-    }
-  }
-
   private static Field _mods, _selected, _selectedMod;
   private static Field _modList, _modListRight, _modListBottom, _modListMods, _listWidth, _scrollDistance;
   static {
